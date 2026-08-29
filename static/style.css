@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #e0f2fe, #f0f9ff, #dbeafe);
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+/* Main container */
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+/* Header */
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.cloud-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 42px;
+    color: #0f4c81;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 18px;
+    color: #64748b;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Card */
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 35px rgba(15, 76, 129, 0.12);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    color: #0f4c81;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+/* Table */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+thead {
+    background: #0f4c81;
+    color: white;
+}
+
+th {
+    padding: 14px 10px;
+    font-size: 14px;
+}
+
+td {
+    padding: 9px 7px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background: #f0f9ff;
+}
+
+.day {
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* Inputs */
+
+input {
+    width: 100%;
+    min-width: 110px;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Predict button */
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #0f4c81);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Result */
+
+.result-card {
+    background: linear-gradient(135deg, #0f4c81, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 40px 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.25);
+}
+
+.result-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.result-card h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.prediction {
+    font-size: 58px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.prediction span {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.status {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.result-card p {
+    opacity: 0.85;
+}
+
+/* Error */
+
+.error-card {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Information cards */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.info-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(15, 76, 129, 0.08);
+}
+
+.info-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.info-card h3 {
+    color: #0f4c81;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    color: #64748b;
+    padding: 20px;
+}
+
+footer .small {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    .cloud-icon {
+        font-size: 45px;
+    }
+
+    .prediction {
+        font-size: 45px;
+    }
+
+}

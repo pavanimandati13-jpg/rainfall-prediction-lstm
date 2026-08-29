@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rainfall Prediction | LSTM</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="cloud-icon">🌧️</div>
+
+        <h1>Rainfall Prediction</h1>
+
+        <p>LSTM Deep Learning Weather Forecasting System</p>
+
+        <div class="badge">
+            ⚡ Powered by PyTorch LSTM
+        </div>
+    </header>
+
+    <main>
+
+        <section class="card">
+
+            <h2>📊 Enter Weather Data</h2>
+
+            <p class="description">
+                Enter weather observations for the previous
+                14 days to predict next-day rainfall.
+            </p>
+
+            <form action="/predict" method="POST">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Temperature (°C)</th>
+                                <th>Humidity (%)</th>
+                                <th>Pressure (hPa)</th>
+                                <th>Wind Speed</th>
+                                <th>Rainfall (mm)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {% for day in range(1, 15) %}
+
+                            <tr>
+
+                                <td>
+                                    <span class="day">
+                                        Day {{ day }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.1"
+                                        name="temperature_{{ day }}"
+                                        placeholder="25.0"
+                                        required>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.1"
+                                        name="humidity_{{ day }}"
+                                        placeholder="60.0"
+                                        required>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.1"
+                                        name="pressure_{{ day }}"
+                                        placeholder="1013.0"
+                                        required>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.1"
+                                        name="windspeed_{{ day }}"
+                                        placeholder="12.0"
+                                        required>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="number"
+                                        step="0.1"
+                                        min="0"
+                                        name="rainfall_{{ day }}"
+                                        placeholder="0.0"
+                                        required>
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <button type="submit">
+                    🔮 Predict Next-Day Rainfall
+                </button>
+
+            </form>
+
+        </section>
+
+
+        {% if prediction is not none %}
+
+        <section class="result-card">
+
+            <div class="result-icon">
+                {{ icon }}
+            </div>
+
+            <h2>Next-Day Rainfall</h2>
+
+            <div class="prediction">
+                {{ prediction }}
+                <span>mm</span>
+            </div>
+
+            <div class="status">
+                {{ status }}
+            </div>
+
+            <p>
+                Prediction generated using your trained
+                PyTorch LSTM model.
+            </p>
+
+        </section>
+
+        {% endif %}
+
+
+        {% if error %}
+
+        <section class="error-card">
+            ❌ {{ error }}
+        </section>
+
+        {% endif %}
+
+
+        <section class="info-grid">
+
+            <div class="info-card">
+                <div class="info-icon">🧠</div>
+
+                <h3>LSTM Model</h3>
+
+                <p>
+                    2-layer Long Short-Term Memory
+                    neural network
+                </p>
+            </div>
+
+
+            <div class="info-card">
+                <div class="info-icon">📅</div>
+
+                <h3>14-Day Sequence</h3>
+
+                <p>
+                    Uses the previous 14 days of
+                    weather observations
+                </p>
+            </div>
+
+
+            <div class="info-card">
+                <div class="info-icon">⚡</div>
+
+                <h3>PyTorch</h3>
+
+                <p>
+                    Deep learning model implemented
+                    without TensorFlow
+                </p>
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Rainfall Prediction System • Deep Learning Project
+            </p>
+
+            <p class="small">
+                Built using Python, Flask & PyTorch
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
