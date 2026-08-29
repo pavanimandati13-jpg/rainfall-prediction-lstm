@@ -1,4 +1,11 @@
 # Rainfall Prediction Using LSTM (PyTorch)
+## 🌐 Live Demo
+
+🚀 **Try the deployed application:**  
+👉 https://rainfall-prediction-lstm.streamlit.app/
+
+The application allows users to enter the previous 14 days of weather observations and predict next-day rainfall using the trained PyTorch LSTM model.
+
 
 A beginner-friendly, final-year-project-ready deep learning system that predicts
 **next-day rainfall (mm)** from recent daily weather observations, using an
